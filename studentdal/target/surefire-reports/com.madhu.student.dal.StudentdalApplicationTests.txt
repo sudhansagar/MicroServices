@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.madhu.student.dal.StudentdalApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 16.962 s <<< FAILURE! - in com.madhu.student.dal.StudentdalApplicationTests
+testCreateStudent(com.madhu.student.dal.StudentdalApplicationTests)  Time elapsed: 0.985 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: error performing isolated work; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: error performing isolated work
+	at com.madhu.student.dal.StudentdalApplicationTests.testCreateStudent(StudentdalApplicationTests.java:27)
+Caused by: org.hibernate.exception.SQLGrammarException: error performing isolated work
+	at com.madhu.student.dal.StudentdalApplicationTests.testCreateStudent(StudentdalApplicationTests.java:27)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'projectdb.hibernate_sequence' doesn't exist
+	at com.madhu.student.dal.StudentdalApplicationTests.testCreateStudent(StudentdalApplicationTests.java:27)
+
+testUpdateStudent(com.madhu.student.dal.StudentdalApplicationTests)  Time elapsed: 0.149 s  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at com.madhu.student.dal.StudentdalApplicationTests.testUpdateStudent(StudentdalApplicationTests.java:39)
+
+testFindStudentById(com.madhu.student.dal.StudentdalApplicationTests)  Time elapsed: 0.009 s  <<< ERROR!
+java.util.NoSuchElementException: No value present
+	at com.madhu.student.dal.StudentdalApplicationTests.testFindStudentById(StudentdalApplicationTests.java:33)
+
+testDeleteStudent(com.madhu.student.dal.StudentdalApplicationTests)  Time elapsed: 0.041 s  <<< ERROR!
+org.springframework.dao.InvalidDataAccessResourceUsageException: error performing isolated work; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: error performing isolated work
+	at com.madhu.student.dal.StudentdalApplicationTests.testDeleteStudent(StudentdalApplicationTests.java:49)
+Caused by: org.hibernate.exception.SQLGrammarException: error performing isolated work
+	at com.madhu.student.dal.StudentdalApplicationTests.testDeleteStudent(StudentdalApplicationTests.java:49)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'projectdb.hibernate_sequence' doesn't exist
+	at com.madhu.student.dal.StudentdalApplicationTests.testDeleteStudent(StudentdalApplicationTests.java:49)
+
