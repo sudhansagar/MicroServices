@@ -1,0 +1,11 @@
+create table customer(
+id int  primary key auto_increment,
+name varchar(20),
+email varchar(20)
+);
+
+desc customer;
+
+drop table customer;
+
+SELECT * FROM microservices.customer;
