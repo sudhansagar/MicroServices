@@ -3,16 +3,25 @@ package com.madhu.flightreservation.entities;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="FLIGHT")
 public class Flight extends AbstractEntity{
 	
+	@Column(name="FLIGHT_NUMBER")
 	private String flightNumber;
+	@Column(name="OPERATING_AIRLINES")
 	private String operatingAirlines;
+	@Column(name="DEPARTURE_CITY")
 	private String departureCity;
+	@Column(name="ARRIVAL_CITY")
 	private String arrivalCity;
+	@Column(name="DATE_OF_DEPARTURE")
 	private Date dateOfDeparture;
+	@Column(name="ESTIMATED_DEPARTURE_TIME")
 	private Timestamp estimatedDepartureTime;
 
 
@@ -44,13 +53,6 @@ public class Flight extends AbstractEntity{
 		return arrivalCity;
 	}
 
-	@Override
-	public String toString() {
-		return "Flight [flightNumber=" + flightNumber + ", operatingAirlines=" + operatingAirlines + ", departureCity="
-				+ departureCity + ", arrivalCity=" + arrivalCity + ", dateOfDeparture=" + dateOfDeparture
-				+ ", estimatedDepartureTime=" + estimatedDepartureTime + "]";
-	}
-
 	public void setArrivalCity(String arrivalCity) {
 		this.arrivalCity = arrivalCity;
 	}
@@ -69,6 +71,13 @@ public class Flight extends AbstractEntity{
 
 	public void setEstimatedDepartureTime(Timestamp estimatedDepartureTime) {
 		this.estimatedDepartureTime = estimatedDepartureTime;
+	}
+
+	@Override
+	public String toString() {
+		return "Flight [flightNumber=" + flightNumber + ", operatingAirlines=" + operatingAirlines + ", departureCity="
+				+ departureCity + ", arrivalCity=" + arrivalCity + ", dateOfDeparture=" + dateOfDeparture
+				+ ", estimatedDepartureTime=" + estimatedDepartureTime + "]";
 	}
 
 }

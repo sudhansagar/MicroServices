@@ -1,13 +1,20 @@
 package com.madhu.flightreservation.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="USER")
 public class User extends AbstractEntity {
 
+	@Column(name="FIRST_NAME")
 	private String firstName;
+	@Column(name="LAST_NAME")
 	private String lastName;
+	@Column(name="EMAIL")
 	private String email;
+	@Column(name="PASSWORD")
 	private String password;
 	
 	public String getFirstName() {
