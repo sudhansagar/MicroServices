@@ -13,4 +13,5 @@
 		4.Externalized Configuration 
 		5.Integration Layer
 		6.Transactional Management
-		7.Generate PDF and Email Itinerary
+		7.Spring Security : encoding, Authentication, Authorization
+		8.Generate PDF and Email Itinerary
