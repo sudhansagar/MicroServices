@@ -3,6 +3,7 @@ package com.madhu.flightreservation.services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,12 +14,14 @@ import com.madhu.flightreservation.entities.Reservation;
 import com.madhu.flightreservation.repos.FlightRepository;
 import com.madhu.flightreservation.repos.PassengerRepository;
 import com.madhu.flightreservation.repos.ReservationRepository;
+import com.madhu.flightreservation.utils.EmailUtil;
+import com.madhu.flightreservation.utils.PDFGenerator;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
 
-	//@Value("${com.bharath.flightreservation.itinerary.dirpath}")
-	//private String ITINERARY_DIR;
+	@Value("${com.madhu.flightreservation.itinerary.dirpath}")
+	private String ITINERARY_DIR;
 
 	@Autowired
 	FlightRepository flightRepository;
@@ -29,11 +32,11 @@ public class ReservationServiceImpl implements ReservationService {
 	@Autowired
 	ReservationRepository reservationRepository;
 
-/*	@Autowired
+	@Autowired
 	PDFGenerator pdfGenerator;
 
 	@Autowired
-	EmailUtil emailUtil;*/
+	EmailUtil emailUtil;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
@@ -64,13 +67,13 @@ public class ReservationServiceImpl implements ReservationService {
 		LOGGER.info("Saving the reservation:" + reservation);
 		Reservation savedReservation = reservationRepository.save(reservation);
 
-/*		String filePath = ITINERARY_DIR + savedReservation.getId()
-				+ ".pdf";
+		String filePath = ITINERARY_DIR + savedReservation.getId() + ".pdf";
 		LOGGER.info("Generating  the itinerary");
 		pdfGenerator.generateItinerary(savedReservation, filePath);
+		
 		LOGGER.info("Emailing the Itinerary");
 		emailUtil.sendItinerary(passenger.getEmail(), filePath);
-*/
+		
 		return savedReservation;
 	}
 
