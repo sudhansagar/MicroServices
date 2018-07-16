@@ -10,6 +10,7 @@
 		1.Presentation Layer
 		2.Data Access Layer
 		3.Logging
-		4.Integration Layer
-		5.Transactional Management
-		6.Generate PDF and Email Itinerary
+		4.Externalized Configuration
+		5.Integration Layer
+		6.Transactional Management
+		7.Generate PDF and Email Itinerary
