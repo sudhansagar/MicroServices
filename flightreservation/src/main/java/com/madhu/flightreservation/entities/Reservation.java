@@ -1,11 +1,17 @@
 package com.madhu.flightreservation.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="RESERVATION")
 public class Reservation extends AbstractEntity{
+	
+	@Column(name="CHECKED_IN")
 	private Boolean checkedIn;
+	@Column(name="NUMBER_OF_BAGS")
 	private int numberOfBags;
 	@OneToOne
 	private Passenger passenger;
@@ -44,4 +50,10 @@ public class Reservation extends AbstractEntity{
 		this.flight = flight;
 	}
 
+	@Override
+	public String toString() {
+		return "Reservation [checkedIn=" + checkedIn + ", numberOfBags=" + numberOfBags + ", passenger=" + passenger
+				+ ", flight=" + flight + "]";
+	}
+	
 }
