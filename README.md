@@ -4,7 +4,9 @@
 2. customerdata : Sample SPRING Boot + Mysql + CRUD operations 2
 3. locationweb : SPRING Boot + MVC + Mysql + CRUD operations + Logging xml based + Rest Controller
 4. vedorweb : SPRING Boot + MVC + Mysql + CRUD operations 2
-5. flightreservation : 
+5. flightcheckin : Flight Checkin Application
+		Integration Layer
+6. flightreservation : 
 	Flight Reservation MicroServices Spring Boot Project :
 	
 		1.Presentation Layer
@@ -15,3 +17,4 @@
 		6.Transactional Management
 		7.Spring Security : encoding, Authentication, Authorization
 		8.Generate PDF and Email Itinerary
+
