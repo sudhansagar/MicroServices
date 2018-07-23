@@ -23,7 +23,7 @@ public class User extends AbstractEntity {
 	private String password;
 
 	@ManyToMany
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	@JoinTable(name = "USER_ROLE", joinColumns = @JoinColumn(name = "USER_ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
 	private Set<Role> roles;
 
 	public String getFirstName() {

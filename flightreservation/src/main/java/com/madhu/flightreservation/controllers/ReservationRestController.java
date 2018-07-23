@@ -1,5 +1,7 @@
 package com.madhu.flightreservation.controllers;
 
+import javax.transaction.Transactional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,7 @@ public class ReservationRestController {
 		return reservationRepository.findById(id).get();
 	}
 
+	@Transactional
 	@RequestMapping("/reservations")
 	public Reservation updateReservation(@RequestBody ReservationUpdateRequest request) {
 		LOGGER.info("Inside updateReservation() for " + request);
