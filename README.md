@@ -16,6 +16,8 @@
 		6.Transactional Management
 		7.Spring Security : encoding, Authentication, Authorization
 		8.Generate PDF and Email Itinerary
+		9.Spring Boot Actuator
 		
 7. documentweb : Uploading and Downloading Documents
+8. springbootadmin : Spring Boot Admin is a web application, used for managing and monitoring Spring Boot applications. Each application is 			     considered as a client and registers to the admin server. Behind the scenes, the magic is given by the Spring Boot Actuator 			     endpoints.
 
