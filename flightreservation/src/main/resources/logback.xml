@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-  	<property name="LOG_DIR" value="E:/Projects/GitHub/MicroServices/flightreservation/src/main/resources/logs/" />
- 
- <!--  	<property name="LOG_DIR" value="/home/i-exceed.com/madhusudhan.revankar/Data/Sources/Samples/MicroServices/flightreservation/src/main/resources/logs/" />
-  -->	<property name="FILE_PREFIX" value="flightreservation" />
+ <!--  	<property name="LOG_DIR" value="E:/Projects/GitHub/MicroServices/flightreservation/src/main/resources/logs/" />
+  -->
+   	<property name="LOG_DIR" value="/home/i-exceed.com/madhusudhan.revankar/Data/Sources/Samples/MicroServices/flightreservation/src/main/resources/logs/" />
+  	<property name="FILE_PREFIX" value="flightreservation" />
 
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
