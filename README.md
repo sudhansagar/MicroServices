@@ -23,4 +23,5 @@
 		     Each application is considered as a client and registers to the admin server. Behind the scenes, 
 		     the magic is given by the Spring Boot Actuator endpoints.
 9. hellowebservice : Apache CXF used to publish endpoint and Logging Feature is used
+10. hellowebserviceclient : cxf-codegen-plugin added to generate stub code
 
