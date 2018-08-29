@@ -13,7 +13,7 @@ public class WsClient {
 		HellowsService ser = new HellowsService(new URL("http://localhost:8080/hellows/hello?wsdl"));
 		Hellows hellowsPort = ser.getHellowsPort();
 		String hello = hellowsPort.hello();
-		System.out.println("Response from Hello SOAP Service : " + hello);
+		System.out.println("Response from Hello SOAP Service : " + hello); 
 	}
 
 }
