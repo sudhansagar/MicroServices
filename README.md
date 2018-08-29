@@ -1,9 +1,9 @@
 # MicroServices
 
 1. studentdal : Sample SPRING Boot + Mysql + CRUD operations 
-2. customerdata : Sample SPRING Boot + Mysql + CRUD operations 2
+2. customerdata : Sample SPRING Boot + Mysql + CRUD operations
 3. locationweb : SPRING Boot + MVC + Mysql + CRUD operations + Logging xml based + Rest Controller
-4. vedorweb : SPRING Boot + MVC + Mysql + CRUD operations 2
+4. vedorweb : SPRING Boot + MVC + Mysql + CRUD operations
 5. flightcheckin : Flight Checkin Application --> Integration Layer
 6. flightreservation : 
 	Flight Reservation MicroServices Spring Boot Project :
@@ -19,5 +19,8 @@
 		9.Spring Boot Actuator
 		
 7. documentweb : Uploading and Downloading Documents
-8. springbootadmin : Spring Boot Admin is a web application, used for managing and monitoring Spring Boot applications. Each application is 			     considered as a client and registers to the admin server. Behind the scenes, the magic is given by the Spring Boot Actuator 			     endpoints.
+8. springbootadmin : Spring Boot Admin is a web application, used for managing and monitoring Spring Boot applications. 
+		     Each application is considered as a client and registers to the admin server. Behind the scenes, 
+		     the magic is given by the Spring Boot Actuator endpoints.
+9. hellowebservice : Apache CXF used to publish endpoint and Logging Feature is used
 
