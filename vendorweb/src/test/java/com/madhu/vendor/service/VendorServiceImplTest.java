@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.never;
 
 import java.util.Collections;
 import java.util.List;
@@ -13,7 +14,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -30,7 +30,6 @@ class VendorServiceImplTest {
     @Mock
     private VendorRepository repository;
 
-    @InjectMocks
     private VendorServiceImpl service;
 
     private Vendor vendor;
@@ -40,6 +39,7 @@ class VendorServiceImplTest {
         vendor = new Vendor();
         vendor.setId(VENDOR_ID);
         vendor.setName(VENDOR_NAME);
+        service = new VendorServiceImpl(repository, true);
     }
 
     @Test
@@ -51,6 +51,17 @@ class VendorServiceImplTest {
 
         assertSame(vendor, result);
         verify(repository).save(vendor);
+    }
+
+    @Test
+    @DisplayName("saveVendor does not persist when disabled")
+    void saveVendorShouldNotPersistWhenDisabled() {
+        VendorServiceImpl disabled = new VendorServiceImpl(repository, false);
+
+        final Vendor result = disabled.saveVendor(vendor);
+
+        assertSame(vendor, result);
+        verify(repository, never()).save(vendor);
     }
 
     @Test
