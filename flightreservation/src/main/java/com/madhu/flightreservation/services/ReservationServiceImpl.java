@@ -20,23 +20,28 @@ import com.madhu.flightreservation.utils.PDFGenerator;
 @Service
 public class ReservationServiceImpl implements ReservationService {
 
-	@Value("${com.madhu.flightreservation.itinerary.dirpath}")
-	private String ITINERARY_DIR;
+        private final FlightRepository flightRepository;
+        private final PassengerRepository passengerRepository;
+        private final ReservationRepository reservationRepository;
+        private final PDFGenerator pdfGenerator;
+        private final EmailUtil emailUtil;
+        private final String itineraryDir;
 
-	@Autowired
-	FlightRepository flightRepository;
-
-	@Autowired
-	PassengerRepository passengerRepository;
-
-	@Autowired
-	ReservationRepository reservationRepository;
-
-	@Autowired
-	PDFGenerator pdfGenerator;
-
-	@Autowired
-	EmailUtil emailUtil;
+        @Autowired
+        public ReservationServiceImpl(
+                        FlightRepository flightRepository,
+                        PassengerRepository passengerRepository,
+                        ReservationRepository reservationRepository,
+                        PDFGenerator pdfGenerator,
+                        EmailUtil emailUtil,
+                        @Value("${com.madhu.flightreservation.itinerary.dirpath}") String itineraryDir) {
+                this.flightRepository = flightRepository;
+                this.passengerRepository = passengerRepository;
+                this.reservationRepository = reservationRepository;
+                this.pdfGenerator = pdfGenerator;
+                this.emailUtil = emailUtil;
+                this.itineraryDir = itineraryDir;
+        }
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ReservationServiceImpl.class);
 
@@ -48,8 +53,9 @@ public class ReservationServiceImpl implements ReservationService {
 		// Make Payment
 
 		Long flightId = request.getFlightId();
-		LOGGER.info("Fetching  flight for flight id:" + flightId);
-		Flight flight = flightRepository.findById(flightId).get();
+                LOGGER.info("Fetching  flight for flight id:" + flightId);
+                Flight flight = flightRepository.findById(flightId)
+                                .orElseThrow();
 
 		Passenger passenger = new Passenger();
 		passenger.setFirstName(request.getPassengerFirstName());
@@ -67,7 +73,7 @@ public class ReservationServiceImpl implements ReservationService {
 		LOGGER.info("Saving the reservation:" + reservation);
 		Reservation savedReservation = reservationRepository.save(reservation);
 
-		String filePath = ITINERARY_DIR + savedReservation.getId() + ".pdf";
+                String filePath = itineraryDir + savedReservation.getId() + ".pdf";
 		LOGGER.info("Generating  the itinerary");
 		pdfGenerator.generateItinerary(savedReservation, filePath);
 		
