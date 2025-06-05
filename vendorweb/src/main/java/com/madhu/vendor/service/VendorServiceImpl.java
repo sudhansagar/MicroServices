@@ -11,8 +11,12 @@ import com.madhu.vendor.repos.VendorRepository;
 @Service
 public class VendorServiceImpl implements VendorService {
 
-	@Autowired
-	private VendorRepository repository;
+       private final VendorRepository repository;
+
+       @Autowired
+       public VendorServiceImpl(VendorRepository repository) {
+               this.repository = repository;
+       }
 
 	@Override
 	public Vendor saveVendor(Vendor vendor) {
@@ -30,21 +34,13 @@ public class VendorServiceImpl implements VendorService {
 	}
 
 	@Override
-	public Vendor getVendorById(int id) {
-		return repository.findById(id).get();
-	}
+       public Vendor getVendorById(int id) {
+               return repository.findById(id).orElse(null);
+       }
 
 	@Override
-	public List<Vendor> getAllVendors() {
-		return repository.findAll();
-	}
-
-	public VendorRepository getRepository() {
-		return repository;
-	}
-
-	public void setRepository(VendorRepository repository) {
-		this.repository = repository;
-	}
+       public List<Vendor> getAllVendors() {
+               return repository.findAll();
+       }
 
 }
