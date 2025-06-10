@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
 import static org.mockito.Mockito.never;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -14,6 +16,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+
+import org.mockito.InjectMocks;
+
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -30,6 +35,8 @@ class VendorServiceImplTest {
     @Mock
     private VendorRepository repository;
 
+    @InjectMocks
+
     private VendorServiceImpl service;
 
     private Vendor vendor;
@@ -40,6 +47,7 @@ class VendorServiceImplTest {
         vendor.setId(VENDOR_ID);
         vendor.setName(VENDOR_NAME);
         service = new VendorServiceImpl(repository, true);
+
     }
 
     @Test

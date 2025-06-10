@@ -13,6 +13,7 @@ import com.madhu.vendor.repos.VendorRepository;
 @Service
 public class VendorServiceImpl implements VendorService {
 
+
        private static final Logger LOGGER = LoggerFactory.getLogger(VendorServiceImpl.class);
 
        private final VendorRepository repository;
@@ -23,7 +24,6 @@ public class VendorServiceImpl implements VendorService {
                        @Value("${vendor.save.enabled:true}") boolean saveEnabled) {
                this.repository = repository;
                this.saveEnabled = saveEnabled;
-       }
 
 	@Override
        public Vendor saveVendor(Vendor vendor) {
