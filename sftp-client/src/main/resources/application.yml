@@ -1,0 +1,14 @@
+sftp:
+  host: localhost
+  port: 22
+  username: your-username
+  password: your-password
+  private-key-path: ""
+  private-key-passphrase: ""
+  timeout-ms: 10000
+  strict-host-key-checking: "no"
+  protocol: "sftp"
+
+spring:
+  main:
+    web-application-type: none
