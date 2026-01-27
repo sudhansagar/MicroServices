@@ -12,11 +12,6 @@ public class ConnectionTestService {
 
   public ConnectionTestResult testConnection() {
     FileTransferClient client = new FtpWrapper(properties).createClient();
-    boolean success = client.testConnection();
-    String message =
-        success
-            ? "Connectivity test succeeded."
-            : "Connectivity test failed. Check logs for details.";
-    return new ConnectionTestResult(success, properties.getProtocol(), message);
+    return client.testConnection();
   }
 }

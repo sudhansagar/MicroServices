@@ -15,6 +15,9 @@ sftp:
   private-key-path: /path/to/id_rsa
   private-key-passphrase: ""
   timeout-ms: 10000
+  session-timeout-ms: 10000
+  server-alive-interval-ms: 10000
+  server-alive-count-max: 1
   strict-host-key-checking: "no"
   protocol: "sftp"
 ```
@@ -29,6 +32,9 @@ SFTP_PASSWORD=my-password
 SFTP_PRIVATE_KEY_PATH=/path/to/id_rsa
 SFTP_PRIVATE_KEY_PASSPHRASE=
 SFTP_TIMEOUT_MS=10000
+SFTP_SESSION_TIMEOUT_MS=10000
+SFTP_SERVER_ALIVE_INTERVAL_MS=10000
+SFTP_SERVER_ALIVE_COUNT_MAX=1
 SFTP_STRICT_HOST_KEY_CHECKING=no
 SFTP_PROTOCOL=sftp
 ```
@@ -50,3 +56,6 @@ Trigger a connectivity test over HTTP:
 ```bash
 curl -X POST http://localhost:8080/api/transfer/test
 ```
+
+If you see `read timed out`, increase `sftp.timeout-ms` or `sftp.session-timeout-ms` and
+verify the server is reachable through firewalls or VPNs.

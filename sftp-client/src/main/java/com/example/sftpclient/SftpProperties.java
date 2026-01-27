@@ -11,6 +11,9 @@ public class SftpProperties {
   private String privateKeyPath;
   private String privateKeyPassphrase;
   private int timeoutMs = 10000;
+  private int sessionTimeoutMs = 10000;
+  private int serverAliveIntervalMs = 10000;
+  private int serverAliveCountMax = 1;
   private String strictHostKeyChecking = "no";
   private Protocol protocol = Protocol.SFTP;
 
@@ -68,6 +71,30 @@ public class SftpProperties {
 
   public void setTimeoutMs(int timeoutMs) {
     this.timeoutMs = timeoutMs;
+  }
+
+  public int getSessionTimeoutMs() {
+    return sessionTimeoutMs;
+  }
+
+  public void setSessionTimeoutMs(int sessionTimeoutMs) {
+    this.sessionTimeoutMs = sessionTimeoutMs;
+  }
+
+  public int getServerAliveIntervalMs() {
+    return serverAliveIntervalMs;
+  }
+
+  public void setServerAliveIntervalMs(int serverAliveIntervalMs) {
+    this.serverAliveIntervalMs = serverAliveIntervalMs;
+  }
+
+  public int getServerAliveCountMax() {
+    return serverAliveCountMax;
+  }
+
+  public void setServerAliveCountMax(int serverAliveCountMax) {
+    this.serverAliveCountMax = serverAliveCountMax;
   }
 
   public String getStrictHostKeyChecking() {

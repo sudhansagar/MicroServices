@@ -15,7 +15,7 @@ public class FtpClient implements FileTransferClient {
   }
 
   @Override
-  public boolean testConnection() {
+  public ConnectionTestResult testConnection() {
     FTPClient ftpClient = new FTPClient();
     try {
       ftpClient.setConnectTimeout(properties.getTimeoutMs());
@@ -23,13 +23,15 @@ public class FtpClient implements FileTransferClient {
       boolean loggedIn = ftpClient.login(properties.getUsername(), properties.getPassword());
       if (!loggedIn) {
         LOGGER.error("FTP login failed for user {}", properties.getUsername());
-        return false;
+        return new ConnectionTestResult(
+            false, properties.getProtocol(), "FTP login failed. Check credentials.");
       }
       LOGGER.info("FTP connectivity test succeeded. Connected: {}", ftpClient.isConnected());
-      return true;
+      return new ConnectionTestResult(true, properties.getProtocol(), "Connectivity test succeeded.");
     } catch (IOException ex) {
       LOGGER.error("FTP connectivity test failed: {}", ex.getMessage(), ex);
-      return false;
+      return new ConnectionTestResult(
+          false, properties.getProtocol(), "FTP connectivity test failed: " + ex.getMessage());
     } finally {
       if (ftpClient.isConnected()) {
         try {

@@ -6,5 +6,8 @@ sftp:
   private-key-path: ""
   private-key-passphrase: ""
   timeout-ms: 10000
+  session-timeout-ms: 10000
+  server-alive-interval-ms: 10000
+  server-alive-count-max: 1
   strict-host-key-checking: "no"
   protocol: "sftp"
