@@ -10,9 +10,11 @@ public class SftpConnectivityRunner implements CommandLineRunner {
   private static final Logger LOGGER = LoggerFactory.getLogger(SftpConnectivityRunner.class);
 
   private final SftpProperties properties;
+  private final ConnectionTestService testService;
 
-  public SftpConnectivityRunner(SftpProperties properties) {
+  public SftpConnectivityRunner(SftpProperties properties, ConnectionTestService testService) {
     this.properties = properties;
+    this.testService = testService;
   }
 
   @Override
@@ -23,9 +25,8 @@ public class SftpConnectivityRunner implements CommandLineRunner {
         properties.getHost(),
         properties.getPort());
 
-    FileTransferClient client = new FtpWrapper(properties).createClient();
-    boolean success = client.testConnection();
-    if (!success) {
+    ConnectionTestResult result = testService.testConnection();
+    if (!result.isSuccess()) {
       LOGGER.warn("Connectivity test failed using protocol {}", properties.getProtocol());
     }
   }

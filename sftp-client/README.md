@@ -42,3 +42,11 @@ mvn spring-boot:run
 ```
 
 The app will attempt a connection on startup and log success or failure.
+
+## API
+
+Trigger a connectivity test over HTTP:
+
+```bash
+curl -X POST http://localhost:8080/api/transfer/test
+```
